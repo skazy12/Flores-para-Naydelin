@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz 21 de Septiembre</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0e68c; /* Fondo claro */
+            position: relative;
+            height: 100vh;
+        }
+
+        .message {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 40%;
+            font-size: 3em;
+            color: #ff6347;
+            z-index: 1;
+        }
+
+        .sub-message {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            font-size: 1.5em;
+            color: #ff1493;
+            z-index: 1;
+            animation: blink 3s infinite; /* Ajustamos a 3s para hacer el parpadeo más lento */
+        }
+
+        /* Animación para hacer que el mensaje parpadee */
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1; /* Opacidad completa */
+            }
+            50% {
+                opacity: 0.3; /* No desaparece por completo, solo se atenúa ligeramente */
+            }
+        }
+
+        .sunflower {
+            position: absolute;
+            background-image: url('flor.png'); /* Imagen de girasol */
+            background-size: cover;
+            background-position: center;
+            animation: fall linear infinite;
+            z-index: 0;
+            border-radius: 50%; /* Suaviza los bordes */
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1; /* Comienza totalmente visible */
+            }
+            80% {
+                opacity: 1; /* Se mantiene visible hasta el 80% de la caída */
+            }
+            100% {
+                transform: translateY(110vh) rotate(90deg);
+                opacity: 0; /* Desaparece gradualmente al llegar al fondo */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message">Feliz 21 De Septiembre, Naydelin hermosa! 💛</div>
+    <div class="sub-message">Se que no son Flores reales pero esto lo hice en especial para ti 💖</div>
+
+    <script>
+        // Función para crear girasoles
+        function createSunflower() {
+            const sunflower = document.createElement('div');
+            sunflower.classList.add('sunflower');
+
+            // Asignar un tamaño aleatorio entre 20px y 50px
+            const size = Math.random() * 65 + 75; // Tamaños entre 20px y 50px
+            sunflower.style.width = size + 'px';
+            sunflower.style.height = size + 'px';
+
+            // Posición aleatoria en la pantalla
+            sunflower.style.left = Math.random() * window.innerWidth + 'px';
+
+            // Duración aleatoria para la animación
+            const animationDuration = 4 + Math.random() * 3 + 's'; // Duración entre 4s y 7s
+            sunflower.style.animationDuration = animationDuration;
+
+            // Añadir la flor al body
+            document.body.appendChild(sunflower);
+            
+            // Remover el girasol después de la animación
+            setTimeout(() => {
+                sunflower.remove();
+            }, parseFloat(animationDuration) * 1000); // Eliminar justo después de la animación
+        }
+
+        // Crear girasoles continuamente para dar efecto de lluvia
+        setInterval(createSunflower, 100); // Genera un girasol cada 100ms para mayor densidad
+
+        // Ajustar el tamaño de la pantalla en caso de que cambie
+        window.addEventListener('resize', () => {
+            document.body.style.height = window.innerHeight + 'px';
+        });
+    </script>
+
+</body>
+</html>
