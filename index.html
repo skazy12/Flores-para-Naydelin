@@ -26,11 +26,10 @@
         }
 
         .sub-message {
-            position: absolute;
-            width: 100%;
+            
+            
             text-align: center;
-            top: 50%;
-            font-size: 1.5em;
+            font-size: 0.6em;
             color: #ff1493;
             z-index: 1;
             animation: blink 3s infinite; /* Ajustamos a 3s para hacer el parpadeo más lento */
@@ -55,6 +54,7 @@
             z-index: 0;
             border-radius: 50%; /* Suaviza los bordes */
         }
+        
 
         @keyframes fall {
             0% {
@@ -72,10 +72,12 @@
     </style>
 </head>
 <body>
-
-    <div class="message">Feliz 21 De Septiembre, Naydelin hermosa! 💛</div>
-    <div class="sub-message">Se que no son Flores reales pero esto lo hice en especial para ti 💖</div>
-
+    
+    <div class="message">Feliz 21 De Septiembre, Naydelin hermosa! 💛
+        <div class="sub-message">Se que no son Flores reales pero esto lo hice en especial para ti 💖</div>
+    </div>
+    
+    
     <script>
         // Función para crear girasoles
         function createSunflower() {
@@ -114,3 +116,4 @@
 
 </body>
 </html>
+
